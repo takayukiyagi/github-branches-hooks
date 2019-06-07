@@ -3,7 +3,7 @@
 GitHubのPush時などをフックし「ブランチごとに任意のコマンドを実行するプログラム（[deploy.php](https://github.com/takayukiyagi/github-branches-hooks/blob/master/deploy.php)）」です。
 
 Webhooks [Payloads](https://developer.github.com/webhooks/#payloads) で認証を行い、Webhooksを通した場合のみコマンド実行されます。  
-deploy.php を直接実行した場合は Invalid となります。  
+deploy.php を直接実行した場合は [Invalid](#Invalid) となります。  
 セキュリティ関連は自己責任にてご了承ください。
 
 
@@ -98,7 +98,7 @@ User git
 
 【yyyy-mm-dd 00:00:00】 Connect to `{GitHubホスト名}` ／ branch: `{ブランチ名}` ／ commit message: `{コミットメッセージ}` ／ output: `{exec戻り値$output}` ／ return: `{exec戻り値$return}`.
 
-### Invalid
+### <a name="Invalid">Invalid</a>
 
 【yyyy-mm-dd 00:00:00】 Invalid access to `{外部ホスト名}`.
 

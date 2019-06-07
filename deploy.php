@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * https://github.com/takayukiyagi/github-branches-hooks
+ */
+
 $commands = array(
   'develop' => 'git pull 2>&1',
   'master'  => 'git pull 2>&1' 
@@ -10,7 +14,7 @@ $commands = array(
  */
 date_default_timezone_set('Asia/Tokyo');
 define( 'LOG_FILE', dirname( __FILE__ ) . '/hook.log' );
-define( 'SECRET_KEY', 'GitHubのWebhooksで設定したSecretフィールドの値' );
+define( 'SECRET_KEY', 'GitHubのWebhooksで設定するSecretフィールドの値' );
 $post_data = file_get_contents( 'php://input' );
 $hmac      = hash_hmac( 'sha1', $post_data, SECRET_KEY );
 $payload   = json_decode( $post_data, true );

@@ -14,7 +14,7 @@ deploy.php を直接実行した場合は [Invalid](#Invalid) となります。
 
 
 
-## 1. deploy.phpの編集・配置
+## 1. Edit deploy.php
 
 配列 `$commands` にブランチ名（key）、実行コマンド（value）のペアを任意に設定。
 
@@ -40,10 +40,11 @@ define( 'SECRET_KEY', 'GitHubのWebhooksで設定するSecretフィールドの�
 所有者は `apache` 等、任意のWebサーバーから実行可能にします。
 
 
+---
 
+## 2. SSH connection
 
-## 2. GitHubとリモート環境のSSH接続
-
+GitHubとリモート環境のSSH接続設定を行います。  
 リモート環境には予めGitをインストールしておきます。
 
 リモート環境上に任意の鍵ファイル名でSSHキーを生成します（パスフレーズなし）。  
@@ -61,10 +62,10 @@ User git
 
 
 
+---
 
 
-
-## 3. GitHubにWebhooksを登録
+## 3. GitHub Webhooks
 
 登録画面から「Add webhook」を押下、以下項目を登録。  
 （`https://github.com/{ユーザー名}/{リポジトリ名}/settings/hooks`）
@@ -78,9 +79,9 @@ User git
 
 
 
+---
 
-
-## 4. 確認
+## 4. Confirmation
 
 以下テストしてみて予期した結果になるか確認。
 
@@ -93,7 +94,7 @@ User git
 ログは `https://{リモート環境}/hook.log` を参照してください。  
 以下のような結果が出力されます。
 
----
+//---------------------------------------------------------------
 ### Success
 
 【yyyy-mm-dd 00:00:00】 Connect to `{GitHubホスト名}` ／ branch: `{ブランチ名}` ／ commit message: `{コミットメッセージ}` ／ output: `{exec戻り値$output}` ／ return: `{exec戻り値$return}`.
@@ -102,7 +103,7 @@ User git
 
 【yyyy-mm-dd 00:00:00】 Invalid access to `{外部ホスト名}`.
 
----
+//---------------------------------------------------------------
 
 `{exec戻り値$return}` が `0` の場合は成功、それ以外の場合はコマンド処理が何らかの原因で失敗しています。
 
